@@ -37,7 +37,7 @@ func UserSlicePrinter(u []instagram.User, rp *instagram.ResponsePagination, s st
 			fmt.Println()
 		}
 	}
-	if rp.NextMaxID != "" {
+	if rp != nil && rp.NextMaxID != "" {
 		fmt.Printf("\nGet next page by supplying: %s %v\n", s, rp.NextMaxID)
 	}
 }
@@ -68,7 +68,7 @@ func MediaSlicePrinter(m []instagram.Media, rp *instagram.ResponsePagination, s 
 			fmt.Println()
 		}
 	}
-	if rp.NextMaxID != "" {
+	if rp != nil && rp.NextMaxID != "" {
 		fmt.Printf("\nGet next page by supplying: %v %v\n", s, rp.NextMaxID)
 	}
 }
