@@ -96,3 +96,20 @@ func CommentSlicePrinter(c []instagram.Comment, rp *instagram.ResponsePagination
 		fmt.Printf("\nGet next page by supplying: %s %v\n", s, rp.NextMaxID)
 	}
 }
+
+func TagPrinter(t *instagram.Tag) {
+	fmt.Printf("%-20s : %v\n", "Name", t.Name)
+	fmt.Printf("%-20s : %v\n", "Media count", t.MediaCount)
+}
+
+func TagSlicePrinter(t []instagram.Tag, rp *instagram.ResponsePagination, s string) {
+	for i, _t := range t {
+		TagPrinter(&_t)
+		if i != len(t)-1 {
+			fmt.Println()
+		}
+	}
+	if rp != nil && rp.NextMaxID != "" {
+		fmt.Printf("\nGet next page by supplying: %s %v\n", s, rp.NextMaxID)
+	}
+}
