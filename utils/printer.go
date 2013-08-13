@@ -77,3 +77,22 @@ func RelationshipPrinter(r *instagram.Relationship) {
 	fmt.Printf("%-20s : %v\n", "Outgoing status", r.OutgoingStatus)
 	fmt.Printf("%-20s : %v\n", "Incoming status", r.IncomingStatus)
 }
+
+func CommentPrinter(c instagram.Comment) {
+	fmt.Printf("%-20s : %v\n", "Comment ID", c.ID)
+	fmt.Printf("%-20s : %v\n", "Text", c.Text)
+	fmt.Printf("%-20s : %v\n", "Created at", c.CreatedTime)
+	fmt.Printf("%-20s : %v (%v)\n", "From", c.From.Username, c.From.ID)
+}
+
+func CommentSlicePrinter(c []instagram.Comment, rp *instagram.ResponsePagination, s string) {
+	for i, _c := range c {
+		CommentPrinter(_c)
+		if i != len(c)-1 {
+			fmt.Println()
+		}
+	}
+	if rp != nil && rp.NextMaxID != "" {
+		fmt.Printf("\nGet next page by supplying: %s %v\n", s, rp.NextMaxID)
+	}
+}
