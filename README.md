@@ -64,6 +64,11 @@ Comments Commands:
     add_comment         Add comment for MEDIA_ID.
     del_comment         Delete comment COMMENT_ID from MEDIA_ID.
 
+Likes Commands:
+    media_likes         Get the list of users who like this MEDIA_ID.
+    add_like            Like this MEDIA_ID.
+    del_like            Unlike this MEDIA_ID.
+
 Basic Commands:
     help                Show help
     version             Show version
