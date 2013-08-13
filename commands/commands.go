@@ -58,11 +58,11 @@ var (
 		cmdSearchMedia,
 		cmdPopularMedia,
 	}
-	// CommentsCommands = []*Command{
-	// 	cmdMediaComments,
-	// 	cmdAddComment,
-	// 	cmdDelComment,
-	// }
+	CommentsCommands = []*Command{
+		cmdMediaComments,
+		cmdAddComment,
+		cmdDelComment,
+	}
 	// LikesCommands = []*Command{
 	// 	cmdMediaLikes,
 	// 	cmdAddLike,
@@ -117,7 +117,7 @@ func All() []*Command {
 	commands = append(commands, UsersCommands...)
 	commands = append(commands, RelationshipsCommands...)
 	commands = append(commands, MediaCommands...)
-	// commands = append(commands, CommentsCommands...)
+	commands = append(commands, CommentsCommands...)
 	// commands = append(commands, LikesCommands...)
 	// commands = append(commands, TagsCommands...)
 	// commands = append(commands, LocationsCommands...)
