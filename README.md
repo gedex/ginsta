@@ -59,6 +59,11 @@ Media Commands:
     search_media        Search for media in a given area.
     popular_media       Get the list of what media is most popular at the moment.
 
+Comments Commands:
+    media_comments      Get the list of comments for this MEDIA_ID.
+    add_comment         Add comment for MEDIA_ID.
+    del_comment         Delete comment COMMENT_ID from MEDIA_ID.
+
 Basic Commands:
     help                Show help
     version             Show version
