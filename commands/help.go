@@ -54,6 +54,9 @@ Media Commands:{{range .MediaCommands}}{{if .Runnable}}{{if .List}}
 Comments Commands:{{range .CommentsCommands}}{{if .Runnable}}{{if .List}}
     {{.Name | printf "%-18s"}}  {{.Short}}{{end}}{{end}}{{end}}
 
+Likes Commands:{{range .LikesCommands}}{{if .Runnable}}{{if .List}}
+    {{.Name | printf "%-18s"}}  {{.Short}}{{end}}{{end}}{{end}}
+
 Basic Commands:{{range .BasicCommands}}{{if .Runnable}}{{if .List}}
     {{.Name | printf "%-18s"}}  {{.Short}}{{end}}{{end}}{{end}}
 `))
@@ -65,6 +68,7 @@ func printUsage() {
 		RelationshipsCommands []*Command
 		MediaCommands         []*Command
 		CommentsCommands      []*Command
+		LikesCommands         []*Command
 		BasicCommands         []*Command
 	}{
 		clients.Name,
@@ -72,6 +76,7 @@ func printUsage() {
 		RelationshipsCommands,
 		MediaCommands,
 		CommentsCommands,
+		LikesCommands,
 		BasicCommands,
 	})
 }
