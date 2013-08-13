@@ -69,6 +69,11 @@ Likes Commands:
     add_like            Like this MEDIA_ID.
     del_like            Unlike this MEDIA_ID.
 
+Tags Commands:
+    tag_info            Get information about a tag [TAG_NAME].
+    recent_media_by_tag  Get the list of media tagged with [TAG_NAME].
+    search_tag          Search for tag.
+
 Basic Commands:
     help                Show help
     version             Show version
