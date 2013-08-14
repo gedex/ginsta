@@ -113,3 +113,22 @@ func TagSlicePrinter(t []instagram.Tag, rp *instagram.ResponsePagination, s stri
 		fmt.Printf("\nGet next page by supplying: %s %v\n", s, rp.NextMaxID)
 	}
 }
+
+func LocationPrinter(l *instagram.Location) {
+	fmt.Printf("%-20s : %v\n", "ID", l.ID)
+	fmt.Printf("%-20s : %v\n", "Name", l.Name)
+	fmt.Printf("%-20s : %v\n", "Latitude", l.Latitude)
+	fmt.Printf("%-20s : %v\n", "Longitue", l.Longitude)
+}
+
+func LocationSlicePrinter(l []instagram.Location, rp *instagram.ResponsePagination, s string) {
+	for i, _l := range l {
+		LocationPrinter(&_l)
+		if i != len(l)-1 {
+			fmt.Println()
+		}
+	}
+	if rp != nil && rp.NextMaxID != "" {
+		fmt.Printf("\nGet next page by supplying: %s %v\n", s, rp.NextMaxID)
+	}
+}
