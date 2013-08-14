@@ -11,7 +11,7 @@ import (
 
 const (
 	// This ginsta version
-	Version = "0.1"
+	Version = "0.2"
 
 	// CLI name
 	Name = "ginsta"
