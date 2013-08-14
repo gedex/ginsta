@@ -121,7 +121,6 @@ func All() []*Command {
 	commands = append(commands, LikesCommands...)
 	commands = append(commands, TagsCommands...)
 	commands = append(commands, LocationsCommands...)
-	// commands = append(commands, cmdVersion)
 	commands = append(commands, BasicCommands...)
 
 	return commands
