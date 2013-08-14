@@ -73,11 +73,11 @@ var (
 		cmdRecentMediaByTag,
 		cmdSearchTag,
 	}
-	// LocationsCommands = []*Command{
-	// 	cmdLocationInfo,
-	// 	cmdRecentMediaByLocation,
-	// 	cmdSearchLocation,
-	// }
+	LocationsCommands = []*Command{
+		cmdLocationInfo,
+		cmdRecentMediaByLocation,
+		cmdSearchLocation,
+	}
 	BasicCommands = []*Command{
 		cmdHelp,
 		cmdVersion,
@@ -120,7 +120,7 @@ func All() []*Command {
 	commands = append(commands, CommentsCommands...)
 	commands = append(commands, LikesCommands...)
 	commands = append(commands, TagsCommands...)
-	// commands = append(commands, LocationsCommands...)
+	commands = append(commands, LocationsCommands...)
 	// commands = append(commands, cmdVersion)
 	commands = append(commands, BasicCommands...)
 

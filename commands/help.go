@@ -60,6 +60,9 @@ Likes Commands:{{range .LikesCommands}}{{if .Runnable}}{{if .List}}
 Tags Commands:{{range .TagsCommands}}{{if .Runnable}}{{if .List}}
     {{.Name | printf "%-18s"}}  {{.Short}}{{end}}{{end}}{{end}}
 
+Locations Commands:{{range .LocationsCommands}}{{if .Runnable}}{{if .List}}
+    {{.Name | printf "%-18s"}}  {{.Short}}{{end}}{{end}}{{end}}
+
 Basic Commands:{{range .BasicCommands}}{{if .Runnable}}{{if .List}}
     {{.Name | printf "%-18s"}}  {{.Short}}{{end}}{{end}}{{end}}
 `))
@@ -73,6 +76,7 @@ func printUsage() {
 		CommentsCommands      []*Command
 		LikesCommands         []*Command
 		TagsCommands          []*Command
+		LocationsCommands     []*Command
 		BasicCommands         []*Command
 	}{
 		clients.Name,
@@ -82,6 +86,7 @@ func printUsage() {
 		CommentsCommands,
 		LikesCommands,
 		TagsCommands,
+		LocationsCommands,
 		BasicCommands,
 	})
 }
