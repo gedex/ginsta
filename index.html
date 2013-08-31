@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Ginsta by gedex</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Ginsta</h1>
+        <h2>Command line client written in Go that speaks to Instagram API</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/gedex/ginsta/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/gedex/ginsta/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/gedex/ginsta" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="ginsta" class="anchor" href="#ginsta"><span class="octicon octicon-link"></span></a>ginsta</h1>
+
+<p>Command line client written in Go that speaks to Instagram API.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>All you need is <a href="http://golang.org/doc/install">install Go</a> and run:</p>
+
+<div class="highlight"><pre>$ go get github.com/gedex/ginsta
+</pre></div>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Please note that some commands need <code>Config.AccessToken</code>. To retrieve that:</p>
+
+<pre><code>$ ginsta token_get
+&gt; open Instagram Authorize page
+</code></pre>
+
+<p>and to set retrieved <code>access_token</code>:</p>
+
+<pre><code>$ ginsta config access_token [ACCESS_TOKEN]
+</code></pre>
+
+<h3>
+<a name="basic" class="anchor" href="#basic"><span class="octicon octicon-link"></span></a>Basic</h3>
+
+<h4>
+<a name="help" class="anchor" href="#help"><span class="octicon octicon-link"></span></a>Help</h4>
+
+<div class="highlight"><pre>ginsta help
+
+Usage: ginsta [command] [options] [arguments]
+
+Users Commands:
+    user_info           Get basic information about a user
+    user_feed           Get authenticated user's feed.
+    user_recent_media   Get the most recent media published by a user.
+    user_liked_media    Get the authenticated user's list of media they've liked.
+    search_user         Search for a user by name
+
+Relationships Commands:
+    user_followings     Get the list of users this user follows.
+    user_followers      Get the list of users this user is followed by.
+    user_requested_by   Get the list of users who have requested this user's permission to follow
+    relationship_with   Get information about a relationship to another user.
+    follow_user         Follow a user specified with USER_ID
+    unfollow_user       Unfollow a user specified with USER_ID
+    block_user          Block a user specified with USER_ID
+    unblock_user        Unblock a user specified with USER_ID
+    approve_user        Approve request from user specified with USER_ID
+    deny_user           Deny request from user specified with USER_ID
+
+Media Commands:
+    media_info          Get information about a media object.
+    search_media        Search for media in a given area.
+    popular_media       Get the list of what media is most popular at the moment.
+
+Comments Commands:
+    media_comments      Get the list of comments for this MEDIA_ID.
+    add_comment         Add comment for MEDIA_ID.
+    del_comment         Delete comment COMMENT_ID from MEDIA_ID.
+
+Likes Commands:
+    media_likes         Get the list of users who like this MEDIA_ID.
+    add_like            Like this MEDIA_ID.
+    del_like            Unlike this MEDIA_ID.
+
+Tags Commands:
+    tag_info            Get information about a tag [TAG_NAME].
+    recent_media_by_tag  Get the list of media tagged with [TAG_NAME].
+    search_tag          Search for tag.
+
+Basic Commands:
+    help                Show help
+    version             Show version
+    config              Get and set ginsta config
+    token_get           Get access_token
+    geocoding           Converting addresses into latitude and longitude representation.
+    reverse_geocoding   Converting geographic coordinates into a human-readable address.
+</pre></div>
+
+<h4>
+<a name="version" class="anchor" href="#version"><span class="octicon octicon-link"></span></a>Version</h4>
+
+<div class="highlight"><pre>$ ginsta version
+ginsta version 0.1
+</pre></div>
+
+<h4>
+<a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Config</h4>
+
+<p>View all configs:</p>
+
+<div class="highlight"><pre>$ ginsta config
+</pre></div>
+
+<p>View particular config's key:</p>
+
+<div class="highlight"><pre>$ ginsta config access_token
+</pre></div>
+
+<p>Set particular config's key:</p>
+
+<div class="highlight"><pre>$ ginsta config access_token fb2e77d.47a0479900504cb3ab4a1f626d174d2d
+</pre></div>
+
+<h4>
+<a name="get-access-token" class="anchor" href="#get-access-token"><span class="octicon octicon-link"></span></a>Get access token</h4>
+
+<div class="highlight"><pre># with default client_id
+$ ginsta token_get
+&gt; open Instagram Authorize page
+
+# specify client_id
+$ ginsta token_get -client-id [CLIENT_ID]
+&gt; open Instagram Authorize page
+
+# specify scope
+$ ginsta token_get -scope basic,comments
+&gt; open Instagram Authorize page
+</pre></div>
+
+<h3>
+<a name="users" class="anchor" href="#users"><span class="octicon octicon-link"></span></a>Users</h3>
+
+<h4>
+<a name="user_info" class="anchor" href="#user_info"><span class="octicon octicon-link"></span></a>user_info</h4>
+
+<div class="highlight"><pre>$ ginsta user_info
+User ID          : 174787104
+Username         : akedabagus
+Profile Pic URL  : http://images.ak.instagram.com/profiles/profile_47172384_75sq_1335356735.jpg
+Total media      : 1
+Total followings : 0
+Total followers  : 6
+
+$ ginsta user_info 3
+User ID          : 3
+Username         : kevin
+Full name        : Kevin Systrom
+Profile Pic URL  : http://images.ak.instagram.com/profiles/profile_3_75sq_1325536697.jpg
+Bio              : CEO &amp; Co-founder of Instagram
+Total media      : 1313
+Total followings : 507
+Total followers  : 655735
+</pre></div>
+
+<h4>
+<a name="user_feed" class="anchor" href="#user_feed"><span class="octicon octicon-link"></span></a>user_feed</h4>
+
+<div class="highlight"><pre>ginsta user_feed
+Media ID             : 490313926454872962_312269417
+Media type           : image
+Filter               : Normal
+Link                 : http://instagram.com/p/bN8esWxQuC/
+Caption              : Aku sexy ya.. @vancaocean #kids #fashionkids #sachi
+Caption by           : kikiwarnaen (312269417)
+Number of comments   : 1
+Number of likes      : 6
+Created at           : 1372669996
+Uploaded by          : kikiwarnaen (312269417)
+...
+
+$
+</pre></div>
+
+<h2>
+<a name="roadmap" class="anchor" href="#roadmap"><span class="octicon octicon-link"></span></a>Roadmap</h2>
+
+<ul>
+<li>Users commands (In-progress)</li>
+<li>Relationships commands</li>
+<li>Likes commands</li>
+<li>Media commands</li>
+<li>Locations commands</li>
+<li>Geographies commands</li>
+<li>Tags commands</li>
+<li>Better usage doc</li>
+</ul><h2>
+<a name="credits" class="anchor" href="#credits"><span class="octicon octicon-link"></span></a>Credits</h2>
+
+<p>Some portion of the source code is taken from modified <a href="https://github.com/jingweno/gh/">gh</a> project,
+which is licensed under the MIT license.</p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>ginsta is released under the BSD-style license found in the LICENSE.md file.</p>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
